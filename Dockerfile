@@ -1,19 +1,12 @@
-# Utiliza la imagen oficial de .NET para construir el proyecto
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+# Etapa 1: build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-
 COPY . .
-RUN dotnet restore "./StockApi.csproj"
-RUN dotnet build "./StockApi.csproj" -c Release -o /app/build
+RUN dotnet restore
+RUN dotnet publish -c Release -o /app/publish
 
-FROM build AS publish
-RUN dotnet publish "./StockApi.csproj" -c Release -o /app/publish
-
-FROM base AS final
+# Etapa 2: runtime
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "StockApi.dll"]
