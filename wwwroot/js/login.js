@@ -2,7 +2,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const nombreUsuario = document.getElementById("usuario").value;
-  const contraseña = document.getElementById("contraseña").value;
+  const contraseña = document.getElementById("Contraseña").value;
 
   // Validación local simulada
   if (nombreUsuario === "admin" && contraseña === "admin123") {
