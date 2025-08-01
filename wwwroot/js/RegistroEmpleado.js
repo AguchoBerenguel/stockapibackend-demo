@@ -1,4 +1,4 @@
-const apiUrl = "/api/usuarios";
+const apiUrl = "https://stockapibackend-demo.onrender.com/api/usuarios";
 
 document
   .getElementById("usuario-form")

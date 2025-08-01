@@ -1,5 +1,5 @@
-const productosUrl = "/api/producto";
-const movimientosUrl = "/api/movimientos";
+const productosUrl = "https://stockapibackend-demo.onrender.com/api/producto";
+const movimientosUrl = "https://stockapibackend-demo.onrender.com/api/movimientos";
 
 // Al cargar la página
 window.onload = function () {

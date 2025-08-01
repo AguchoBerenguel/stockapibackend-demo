@@ -1,4 +1,4 @@
-const apiUrl = "/api/proveedores"; 
+const apiUrl = "https://stockapibackend-demo.onrender.com/api/proveedores"; 
 
 window.onload = cargarProveedores;
 

@@ -1,4 +1,4 @@
-const apiUrl = "/api/producto";
+const apiUrl = "https://stockapibackend-demo.onrender.com";
 
 // Cargar productos al iniciar
 window.onload = cargarProductos;

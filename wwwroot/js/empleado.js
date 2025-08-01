@@ -1,4 +1,4 @@
-const empleadosUrl = "/api/empleado";
+const empleadosUrl = "https://stockapibackend-demo.onrender.com/api/empleado";
 
 window.onload = function () {
   cargarEmpleados();

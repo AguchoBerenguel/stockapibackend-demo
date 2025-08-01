@@ -21,7 +21,17 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy
+            .WithOrigins("https://aguchoberenguel.github.io/StockFrontend-demo/") 
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 
