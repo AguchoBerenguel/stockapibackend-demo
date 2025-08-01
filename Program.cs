@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using StockApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 
 // Servicios
 builder.Services.AddControllers();
